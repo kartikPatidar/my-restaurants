@@ -1,9 +1,21 @@
+import { useState } from 'react';
 import classes from './search.module.css';
 
 function SearchBar() {
+
+    const [query, setQuery] = useState('');
+
+    function submitForm(e) {
+        e.preventDefault();
+
+    }
+
     return (
         <div className={classes.Top}>
-            <h1>Hello from Search bar</h1>
+            <form>
+                <input onChange={(event) => setQuery(event.target.value)} type="text" />
+                <button onClick={(event) => submitForm(event)}>Search</button>
+            </form>
         </div>
     )
 }
